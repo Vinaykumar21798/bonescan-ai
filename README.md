@@ -119,20 +119,40 @@ FractureAI/
     ├── EfficientNetB1_Final_Hand.ipynb
     ├── EfficientNetB1_Final_Shoulder.ipynb
     └── EfficientNetB1_Parts.ipynb
+```
 
+---
 
+## ⚙️ Installation
 
-Install dependencies
+### 1. Clone the repository
 
+```id="chp1dt"
+git clone https://github.com/Vinaykumar21798/bonescan-ai.git
+cd FractureAI
+```
+
+### 2. Create virtual environment (recommended)
+
+```id="6v80ep"
+python -m venv venv
+source venv/bin/activate        # macOS/Linux
+venv\Scripts\activate           # Windows
+```
+
+### 3. Install dependencies
+
+```id="d1is8q"
 pip install -r requirements.txt
+```
 
+---
 
 ## ▶️ Run the Application
 
 ```id="qk6gr6"
 python app.py
 ```
----
 
 ## 📄 Output
 
