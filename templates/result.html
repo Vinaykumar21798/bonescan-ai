@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fracture Analysis Result</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav>
+    <a href="/" class="logo">🦴 FractureAI</a>
+    <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/features">Features</a>
+        <a href="/about-model">Insights</a>
+        <a href="/faq">FAQ</a>
+    </div>
+</nav>
+
+<!-- ================= MAIN CONTENT ================= -->
+<div class="container">
+<div class="card">
+
+<h1 style="text-align:center;">Clinical Fracture Assessment Report</h1>
+
+<!-- ================= CLINICAL FINDINGS ================= -->
+<h2>🧾 Clinical Findings</h2>
+
+<div class="features" style="grid-template-columns: repeat(auto-fit, minmax(250px,1fr));">
+    <div class="feature-box">
+        <strong>Anatomical Region</strong>
+        <p class="lead">{{ region }}</p>
+    </div>
+
+    <div class="feature-box">
+        <strong>Fracture Status</strong>
+        <p class="lead {{ 'danger' if status in ['fractured','suspected fracture'] else 'success' }}">
+            {{ status|capitalize }}
+        </p>
+    </div>
+
+    <div class="feature-box">
+        <strong>Confidence Score</strong>
+        <p class="lead">{{ confidence }}%</p>
+    </div>
+
+    <div class="feature-box">
+        <strong>Displacement Angle</strong>
+        <p class="lead">{{ displacement }}°</p>
+    </div>
+
+    <div class="feature-box">
+        <strong>Severity Level</strong>
+        <p class="lead">{{ severity }}</p>
+    </div>
+
+</div>
+
+<!-- ================= CLINICAL RECOMMENDATION ================= -->
+<h2>🩺 Clinical Recommendation</h2>
+
+<div class="feature-box">
+    <p class="lead">
+        <strong>Treatment Approach:</strong> {{ severity }} severity injury
+    </p>
+    <p>
+        <strong>Surgery Required:</strong> {{ surgery }}
+    </p>
+
+    <ul style="margin-top:1rem;">
+        {% for action in actions %}
+            <li>{{ action }}</li>
+        {% endfor %}
+    </ul>
+</div>
+
+<!-- ================= VISUAL EVIDENCE ================= -->
+{% if roi or gradcam %}
+<h2>🔬 Visual Evidence</h2>
+
+<div class="visual-grid">
+
+    {% if roi %}
+    <div class="feature-box visual-box">
+        <strong>Region of Interest (ROI)</strong>
+        <div class="image-wrapper">
+            <img src="{{ roi }}" alt="ROI Image" class="evidence-img">
+        </div>
+    </div>
+    {% endif %}
+
+    {% if gradcam %}
+    <div class="feature-box visual-box">
+        <strong>Grad-CAM Heatmap</strong>
+        <div class="image-wrapper">
+            <img src="{{ gradcam }}" alt="Grad-CAM Image" class="evidence-img">
+        </div>
+    </div>
+    {% endif %}
+
+</div>
+{% endif %}
+
+<!-- ================= NO VISUAL MESSAGE ================= -->
+{% if not roi and not gradcam %}
+<div class="feature-box" style="text-align:center; margin-top:2rem;">
+    <strong>No abnormal region detected</strong>
+    <p class="lead">
+        Visual explanations are not generated for normal cases.
+    </p>
+</div>
+{% endif %}
+
+<!-- ================= ACTIONS ================= -->
+<div style="
+    display:flex;
+    justify-content:center;
+    gap:2rem;
+    margin-top:3rem;
+    flex-wrap:wrap;
+">
+
+<a href="/download-medical-report"
+   class="btn-primary"
+   style="min-width:280px; font-size:1.05rem; padding:0.9rem 2.2rem; text-align:center;">
+   📄 Download Medical PDF
+</a>
+
+
+
+<a href="/predict"
+        class="btn-primary"
+        style="min-width:280px; font-size:1.05rem; padding:0.9rem 2.2rem; text-align:center;">
+        Analyze Another Image
+    </a>
+</div>
+
+</div>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+    <p>© 2026 FractureAI | AI-Assisted Bone Fracture Diagnosis</p>
+</footer>
+
+</body>
+</html>

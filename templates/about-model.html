@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Insights - FractureAI</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+    <nav>
+        <a href="/" class="logo">🦴 FractureAI</a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/features">Features</a>
+            <a href="/about-model" class="active">Insights</a>
+            <a href="/faq">FAQ</a>
+        </div>
+        <a href="/predict" class="btn-primary">Get Started</a>
+    </nav>
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <div class="container">
+
+        <div class="card">
+            <h1 style="text-align:center; margin-bottom:2rem;">
+                Model Insights
+            </h1>
+
+            <!-- ================= DATASET OVERVIEW ================= -->
+            <div style="margin-bottom:2.5rem;">
+                <h2 style="color:var(--secondary-color);">📊 Dataset Overview</h2>
+
+                <p style="color:var(--text-light); line-height:1.6; margin-bottom:1rem;">
+                    The fracture detection model was trained using annotated bone X-ray images collected from
+                    publicly available orthopedic imaging datasets. The dataset includes multiple anatomical
+                    regions such as the elbow, shoulder, wrist, and hand, covering both fractured and normal cases.
+                </p>
+
+                <div style="display:flex; gap:2rem; margin-top:1.5rem; flex-wrap:wrap;">
+
+                    <div style="flex:1; padding:1rem; background:rgba(255,255,255,0.06); border-radius:12px; text-align:center;">
+                        <h3 style="color:var(--primary-color); font-size:2rem;">10k+</h3>
+                        <p>X-ray Images</p>
+                    </div>
+
+                    <div style="flex:1; padding:1rem; background:rgba(255,255,255,0.06); border-radius:12px; text-align:center;">
+                        <h3 style="color:var(--primary-color); font-size:2rem;">2</h3>
+                        <p>Classes (Fractured / Normal)</p>
+                    </div>
+
+                    <div style="flex:1; padding:1rem; background:rgba(255,255,255,0.06); border-radius:12px; text-align:center;">
+                        <h3 style="color:var(--primary-color); font-size:2rem;">73%</h3>
+                        <p>Validation Accuracy</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ================= MODEL BEHAVIOR ================= -->
+            <div style="margin-bottom:2.5rem;">
+                <h2 style="color:var(--secondary-color);">🧠 Model Interpretation</h2>
+
+                <p style="color:var(--text-light); margin-bottom:1.5rem;">
+                    The convolutional neural network learns spatial and texture-based features from X-ray images
+                    that are commonly associated with bone fractures, such as cortical discontinuity, abnormal
+                    bone alignment, and density variations.
+                </p>
+
+                <div style="display:grid; gap:1rem;">
+
+                    <div style="display:grid; grid-template-columns:160px 1fr; align-items:center; gap:1rem;">
+                        <strong>Cortical Disruption</strong>
+                        <div style="height:10px; background:rgba(255,255,255,0.2); border-radius:5px; overflow:hidden;">
+                            <div style="width:85%; height:100%; background:var(--primary-color);"></div>
+                        </div>
+                    </div>
+
+                    <div style="display:grid; grid-template-columns:160px 1fr; align-items:center; gap:1rem;">
+                        <strong>Bone Alignment</strong>
+                        <div style="height:10px; background:rgba(255,255,255,0.2); border-radius:5px; overflow:hidden;">
+                            <div style="width:70%; height:100%; background:var(--secondary-color);"></div>
+                        </div>
+                    </div>
+
+                    <div style="display:grid; grid-template-columns:160px 1fr; align-items:center; gap:1rem;">
+                        <strong>Texture Variations</strong>
+                        <div style="height:10px; background:rgba(255,255,255,0.2); border-radius:5px; overflow:hidden;">
+                            <div style="width:60%; height:100%; background:var(--secondary-color);"></div>
+                        </div>
+                    </div>
+
+                    <div style="display:grid; grid-template-columns:160px 1fr; align-items:center; gap:1rem;">
+                        <strong>Contrast Differences</strong>
+                        <div style="height:10px; background:rgba(255,255,255,0.2); border-radius:5px; overflow:hidden;">
+                            <div style="width:50%; height:100%; background:var(--secondary-color);"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <p style="font-size:0.8rem; color:var(--text-light); margin-top:0.6rem;">
+                    * Feature importance visualization is illustrative and based on learned activation patterns.
+                </p>
+            </div>
+
+            <!-- ================= CTA ================= -->
+            <div style="text-align:center;">
+                <a href="/predict" class="btn-primary">
+                    Test the Model
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+        <p>&copy; 2026 FractureAI. Bone Fracture Detection using Deep Learning.</p>
+    </footer>
+
+</body>
+</html>

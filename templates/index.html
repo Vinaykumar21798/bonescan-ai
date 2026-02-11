@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bone Fracture Detection AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<nav>
+    <a href="/" class="logo">🦴 FractureAI</a>
+    <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/features">Features</a>
+        <a href="/about-model">Model</a>
+        <a href="/faq">FAQ</a>
+    </div>
+    <a href="/predict" class="btn-primary">Detect Fracture</a>
+</nav>
+
+<div class="container">
+    <div class="card">
+        <h1>Bone Fracture Detection</h1>
+        <p class="lead">
+            AI-powered system for detecting bone fractures from X-ray images.
+            Built using deep learning models like ResNet and EfficientNet.
+        </p>
+
+        <div class="features">
+            <div class="feature">
+                <h3 style="color:#00f5d4;">Accurate</h3>
+                <p>Trained on medical X-ray datasets with high precision.</p>
+            </div>
+            <div class="feature">
+                <h3 style="color:#b5179e;">Fast</h3>
+                <p>Instant fracture prediction using deep learning.</p>
+            </div>
+            <div class="feature">
+                <h3 style="color:#00f5d4;">Explainable</h3>
+                <p>Can be extended with Grad-CAM visualizations.</p>
+            </div>
+        </div>
+
+        <a href="/predict" class="btn-primary" style="font-size:1.2rem;">Upload X-ray</a>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 FractureAI | Deep Learning Medical Imaging Project</p>
+</footer>
+
+</body>
+</html>

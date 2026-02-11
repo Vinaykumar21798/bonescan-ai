@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features - FractureAI</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+    <nav>
+        <a href="/" class="logo">🦴 FractureAI</a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/features" class="active">Features</a>
+            <a href="/about-model">Insights</a>
+            <a href="/faq">FAQ</a>
+        </div>
+        <a href="/predict" class="btn-primary">Get Started</a>
+    </nav>
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <div class="container">
+        <div class="card">
+
+            <h1 style="text-align:center; margin-bottom:2rem;">
+                Application Functionalities
+            </h1>
+
+            <!-- ================= TECHNOLOGY STACK ================= -->
+            <div style="margin-bottom:2.5rem;">
+                <h2>🛠️ Technology Stack</h2>
+
+                <!-- IMPORTANT: features + tech-stack -->
+                <div class="features tech-stack">
+
+                    <div class="feature-box" style="display:flex; gap:1rem;">
+                        <span style="font-size:1.8rem;">🐍</span>
+                        <div>
+                            <strong>Flask Framework</strong>
+                            <p class="lead" style="font-size:0.95rem; margin-top:0.3rem;">
+                                Flask is used as a lightweight backend server to manage routing,
+                                handle X-ray image uploads, and serve deep learning predictions
+                                through HTML templates.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="feature-box" style="display:flex; gap:1rem;">
+                        <span style="font-size:1.8rem;">🧠</span>
+                        <div>
+                            <strong>Deep Learning Models</strong>
+                            <p class="lead" style="font-size:0.95rem; margin-top:0.3rem;">
+                                Pre-trained convolutional neural networks such as ResNet50 and
+                                EfficientNet are used to classify bone X-ray images into
+                                fractured and normal categories.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="feature-box" style="display:flex; gap:1rem;">
+                        <span style="font-size:1.8rem;">🧪</span>
+                        <div>
+                            <strong>Medical Image Preprocessing</strong>
+                            <p class="lead" style="font-size:0.95rem; margin-top:0.3rem;">
+                                X-ray images are preprocessed using resizing, normalization,
+                                and optional contrast enhancement techniques such as CLAHE
+                                to improve fracture visibility.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ================= KEY FEATURES ================= -->
+            <div style="margin-bottom:2.5rem;">
+                <h2>✨ Key Features</h2>
+
+                <!-- Grid layout intentionally -->
+                <div class="features">
+
+                    <div class="feature-box">
+                        <h3 style="color:var(--secondary-color);">
+                            X-ray Image Upload
+                        </h3>
+                        <p style="color:var(--text-light); font-size:0.95rem;">
+                            Users can upload bone X-ray images through a simple interface
+                            to perform automated fracture detection using deep learning models.
+                        </p>
+                    </div>
+
+                    <div class="feature-box">
+                        <h3 style="color:var(--secondary-color);">
+                            Binary Fracture Classification
+                        </h3>
+                        <p style="color:var(--text-light); font-size:0.95rem;">
+                            The system classifies X-ray images into <b>Fractured</b> or
+                            <b>Normal</b> categories along with prediction confidence.
+                        </p>
+                    </div>
+
+                    <div class="feature-box">
+                        <h3 style="color:var(--secondary-color);">
+                            Responsive Glassmorphism UI
+                        </h3>
+                        <p style="color:var(--text-light); font-size:0.95rem;">
+                            A modern glass-style user interface designed specifically
+                            for medical imaging applications and accessible across all devices.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ================= CTA ================= -->
+            <div style="text-align:center; margin-top:2rem;">
+                <a href="/predict" class="btn-primary">
+                    Try the Tool
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+        <p>&copy; 2026 FractureAI. Bone Fracture Detection using Deep Learning.</p>
+    </footer>
+
+</body>
+</html>

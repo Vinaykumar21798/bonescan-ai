@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - FractureAI</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+    <nav>
+        <a href="/" class="logo">🦴 FractureAI</a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/features">Features</a>
+            <a href="/about-model">Insights</a>
+            <a href="/faq" class="active">FAQ</a>
+        </div>
+        <a href="/predict" class="btn-primary">Get Started</a>
+    </nav>
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <div class="container">
+
+        <div class="card">
+            <h1 style="text-align:center; margin-bottom:2rem;">
+                Frequently Asked Questions
+            </h1>
+
+            <div style="margin-bottom:2rem;">
+                <h3 style="color:var(--secondary-color); margin-bottom:0.5rem;">
+                    What type of images does the model support?
+                </h3>
+                <p style="color:var(--text-light);">
+                    The system supports standard bone X-ray images (JPEG or PNG format). Images may include
+                    anatomical regions such as the elbow, shoulder, wrist, or hand.
+                </p>
+            </div>
+
+            <div style="margin-bottom:2rem;">
+                <h3 style="color:var(--secondary-color); margin-bottom:0.5rem;">
+                    How does the fracture detection work?
+                </h3>
+                <p style="color:var(--text-light);">
+                    The uploaded X-ray image is processed using a deep learning model based on convolutional neural
+                    networks (CNNs). The model analyzes visual patterns such as bone alignment and texture changes to
+                    classify the image as <b>Fractured</b> or <b>Normal</b>.
+                </p>
+            </div>
+
+            <div style="margin-bottom:2rem;">
+                <h3 style="color:var(--secondary-color); margin-bottom:0.5rem;">
+                    Is this a medical diagnosis?
+                </h3>
+                <p style="color:var(--text-light);">
+                    <strong>No.</strong> This application is intended for educational and research purposes only.
+                    It should not be used as a substitute for professional medical diagnosis or clinical decision-making.
+                    Always consult a qualified healthcare professional.
+                </p>
+            </div>
+
+            <div style="margin-bottom:2rem;">
+                <h3 style="color:var(--secondary-color); margin-bottom:0.5rem;">
+                    What preprocessing is applied to the X-ray images?
+                </h3>
+                <p style="color:var(--text-light);">
+                    Images are resized and normalized to match the model’s training configuration. Optional
+                    preprocessing techniques such as contrast enhancement (CLAHE) may be applied to improve fracture
+                    visibility.
+                </p>
+            </div>
+
+            <div style="margin-bottom:2rem;">
+                <h3 style="color:var(--secondary-color); margin-bottom:0.5rem;">
+                    Can this system detect fracture severity?
+                </h3>
+                <p style="color:var(--text-light);">
+                    Currently, the system performs binary classification (Fractured / Normal). It does not estimate
+                    fracture severity or type. Future versions may include multi-class classification and localization
+                    features.
+                </p>
+            </div>
+
+            <div style="margin-top:3rem; text-align:center; border-top:1px solid rgba(255,255,255,0.1); padding-top:2rem;">
+                <p style="margin-bottom:1rem;">Still have questions?</p>
+                <button class="btn-primary" style="background: var(--text-light); color:#000;">
+                    Contact Support (Demo)
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+        <p>&copy; 2026 FractureAI. Bone Fracture Detection using Deep Learning.</p>
+    </footer>
+
+</body>
+</html>
