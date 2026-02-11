@@ -120,13 +120,12 @@ FractureAI/
     ├── EfficientNetB1_Final_Shoulder.ipynb
     └── EfficientNetB1_Parts.ipynb
 
-### 3. Install dependencies
 
-```id="d1is8q"
+
+Install dependencies
+
 pip install -r requirements.txt
-```
 
----
 
 ## ▶️ Run the Application
 
