@@ -129,7 +129,7 @@ FractureAI/
 
 ```id="chp1dt"
 git clone https://github.com/Vinaykumar21798/bonescan-ai.git
-cd FractureAI
+cd bonescan-ai
 ```
 
 ### 2. Create virtual environment (recommended)
