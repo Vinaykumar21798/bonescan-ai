@@ -1,0 +1,29 @@
+statechart.puml
+@startuml
+[*] --> Idle
+Idle --> Validating_Input : Upload Image
+Validating_Input --> Error_State : Invalid
+Validating_Input --> Image_Saved : Valid
+
+Image_Saved --> Detect_Body_Part
+Detect_Body_Part --> Select_Model
+Select_Model --> Run_Prediction
+Run_Prediction --> Evaluate_Confidence
+
+Evaluate_Confidence --> Suspected : <65
+Evaluate_Confidence --> Normal : >=65
+
+Suspected --> Decision
+Normal --> Decision
+
+Decision --> Explainability : fracture
+Decision --> Normal_Case : normal
+
+Explainability --> Clinical
+Normal_Case --> Clinical
+
+Clinical --> Result
+Result --> PDF : download
+Result --> [*]
+PDF --> [*]
+@enduml
