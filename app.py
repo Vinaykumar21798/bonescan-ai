@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, send_file, session
 import os
 import numpy as np
 from werkzeug.utils import secure_filename
-from tensorflow.keras.preprocessing import image
+from keras.preprocessing import image
 from tensorflow.keras.applications.efficientnet import preprocess_input
 
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image, Table, TableStyle
@@ -325,6 +325,4 @@ def download_medical_report():
 # RUN SERVER
 # --------------------------------------------------
 if __name__ == "__main__":
-    import os
-    port = int(os.environ.get("PORT", 10000))
-    app.run(host="0.0.0.0", port=port)
+    app.run(debug=True)
