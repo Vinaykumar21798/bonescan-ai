@@ -1,36 +1,57 @@
 import numpy as np
 import tensorflow as tf
-from keras.preprocessing import image
-from tensorflow.keras.applications.efficientnet import preprocess_input as effnet_preprocess
+from tensorflow.keras.preprocessing import image
+from tensorflow.keras.applications.efficientnet import preprocess_input
 
-model_elbow_frac = tf.keras.models.load_model("weights/EfficientNetB1_Elbow.h5")
-model_hand_frac = tf.keras.models.load_model("weights/EfficientNetB1_Hand.h5")
-model_shoulder_frac = tf.keras.models.load_model("weights/EfficientNetB1_Shoulder.h5")
-model_parts = tf.keras.models.load_model("weights/EfficientNetB1_BodyParts.h5")
+# Lazy loading
+model_elbow = None
+model_hand = None
+model_shoulder = None
+model_parts = None
 
 categories_parts = ["Elbow", "Hand", "Shoulder"]
 categories_fracture = ["fractured", "normal"]
 
-def predict(img_path, model="Parts"):
-    size = 224
 
+def load_models():
+    global model_elbow, model_hand, model_shoulder, model_parts
+
+    if model_parts is None:
+        model_parts = tf.keras.models.load_model("weights/EfficientNetB1_BodyParts.h5")
+
+    if model_elbow is None:
+        model_elbow = tf.keras.models.load_model("weights/EfficientNetB1_Elbow.h5")
+
+    if model_hand is None:
+        model_hand = tf.keras.models.load_model("weights/EfficientNetB1_Hand.h5")
+
+    if model_shoulder is None:
+        model_shoulder = tf.keras.models.load_model("weights/EfficientNetB1_Shoulder.h5")
+
+
+def predict(img_path):
+    load_models()
+
+    size = 224
     img = image.load_img(img_path, target_size=(size, size))
     x = image.img_to_array(img)
     x = np.expand_dims(x, axis=0)
+    x = preprocess_input(x)
 
-    if model == "Parts":
-        x = effnet_preprocess(x)
-        preds = model_parts.predict(x)
-        return categories_parts[np.argmax(preds[0])]
+    # Step 1: detect body part
+    part_pred = model_parts.predict(x)
+    region = categories_parts[np.argmax(part_pred[0])]
 
+    # Step 2: fracture detection
+    if region == "Elbow":
+        preds = model_elbow.predict(x)
+    elif region == "Hand":
+        preds = model_hand.predict(x)
     else:
-        x = effnet_preprocess(x)
+        preds = model_shoulder.predict(x)
 
-        if model == "Elbow":
-            preds = model_elbow_frac.predict(x)
-        elif model == "Hand":
-            preds = model_hand_frac.predict(x)
-        elif model == "Shoulder":
-            preds = model_shoulder_frac.predict(x)
+    class_idx = np.argmax(preds[0])
+    confidence = float(preds[0][class_idx]) * 100
+    status = categories_fracture[class_idx]
 
-        return categories_fracture[np.argmax(preds[0])]
+    return region, status, round(confidence, 2)
